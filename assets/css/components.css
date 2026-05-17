@@ -1,0 +1,117 @@
+.random-btn {
+    background: #ffffffde;
+    border: none;
+    border-radius: 50px;
+    padding: 12px 28px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #153b50;
+    box-shadow: 0 4px 8px rgba(0,10,20,0.2), 0 0 0 2px #f2f9ff;
+    backdrop-filter: blur(4px);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.15s;
+}
+
+.random-btn:hover {
+    background: #fff;
+    box-shadow: 0 8px 14px #1d3a4e4d, 0 0 0 3px #c0d3e9;
+    transform: scale(1.02);
+}
+
+.random-btn:active {
+    transform: scale(0.96);
+}
+
+.control-section {
+    background: #dee9f2cc;
+    border-radius: 34px;
+    padding: 20px 20px 18px;
+    box-shadow: inset 0 1px 4px #f6fbff, 0 6px 12px #8195a6;
+}
+
+.section-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1a3b4e;
+    letter-spacing: 0.7px;
+    margin-bottom: 16px;
+    padding-left: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.section-title span {
+    font-size: 1.3rem;
+}
+
+.option-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: flex-start;
+}
+
+.opt-btn {
+    background: #f2f8ff;
+    border: 2px solid #b7cddf;
+    border-radius: 34px;
+    padding: 8px 18px;
+    font-size: 0.95rem;
+    font-weight: 550;
+    color: #1f3c4f;
+    box-shadow: 0 2px 5px #0000001a;
+    cursor: pointer;
+    transition: 0.1s;
+    flex: 0 1 auto;
+    backdrop-filter: blur(2px);
+}
+
+.opt-btn.selected {
+    background: #1c3f5c;
+    border-color: #ffffff;
+    color: white;
+    box-shadow: 0 0 0 3px #fffaec, 0 5px 10px black;
+    transform: scale(1.02);
+}
+
+.color-options {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-left: 8px;
+}
+
+.color-dot {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 2px 8px #1f3b4e;
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+.color-dot.selected {
+    transform: scale(1.15);
+    border: 4px solid #fbd24d;
+    box-shadow: 0 0 0 3px #305d81;
+}
+
+.color-dot.beige { background: #f5e6d3; }
+.color-dot.olive { background: #d6b57c; }
+.color-dot.brown { background: #a3775a; }
+.color-dot.darkbrown { background: #6e4f3a; }
+.color-dot.almond { background: #f3d9c1; }
+
+.footer-note {
+    color: #1d3a47;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    text-align: right;
+}

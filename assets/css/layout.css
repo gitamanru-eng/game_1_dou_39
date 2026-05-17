@@ -1,0 +1,108 @@
+.game-container {
+    max-width: 1150px;
+    width: 100%;
+    background: rgba(255,255,255,0.4);
+    backdrop-filter: blur(8px);
+    border-radius: 56px;
+    box-shadow: 0 25px 45px -12px rgba(0,0,0,0.4), inset 2px 2px 5px rgba(255,255,255,0.6);
+    padding: 30px;
+}
+
+.creator {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.canvas-area {
+    flex: 1 1 400px;
+    min-width: 320px;
+    background: #dee9f2;
+    border-radius: 42px;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.7), 0 12px 18px -8px rgba(0,20,40,0.3);
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.canvas-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2a3d4f;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background: rgba(255,255,240,0.5);
+    padding: 6px 18px;
+    border-radius: 40px;
+    backdrop-filter: blur(2px);
+    margin-bottom: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.face-canvas {
+    display: block;
+    width: auto;
+    max-width: 360px;
+    max-height: calc(100vh - 220px);
+    height: auto;
+    aspect-ratio: 400 / 800;
+    background: #cfdbe8;
+    border-radius: 48px;
+    box-shadow: 0 10px 20px -5px rgba(30,40,60,0.3), inset 0 -2px 5px #b0c1d2;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+    border: 3px solid #f0f6fe;
+}
+
+.face-canvas:active {
+    transform: scale(0.99);
+}
+
+.canvas-hint {
+    margin-top: 12px;
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+
+.controls-panel {
+    flex: 1 1 320px;
+    background: rgba(245, 240, 245, 0.7);
+    backdrop-filter: blur(16px);
+    border-radius: 48px;
+    padding: 28px 22px;
+    box-shadow: 0 16px 32px -10px #5f6f7e, inset 2px 2px 8px #fdfdff;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.random-row {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 8px;
+}
+
+/* on wider screens keep fixed viewport frame and scroll only controls panel */
+@media (min-width: 768px) {
+    .game-container {
+        height: calc(100vh - 40px);
+        max-height: calc(100vh - 40px);
+        overflow: hidden;
+    }
+
+    .creator {
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+    }
+
+    .controls-panel {
+        height: 100%;
+        min-height: 0;
+        max-height: 100%;
+        overflow-y: auto;
+    }
+}

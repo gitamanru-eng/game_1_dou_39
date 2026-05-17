@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Создай своего человека</title>
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="creator">
+            <!-- ЛЕВАЯ ЧАСТЬ: ПОРТРЕТ -->
+            <div class="canvas-area">
+                <div class="canvas-title">✧ твой человек ✧</div>
+                <canvas id="faceCanvas" class="face-canvas" width="400" height="800"></canvas>
+                <div class="canvas-hint">▼ кликни для случайного</div>
+            </div>
+
+            <!-- ПРАВАЯ ЧАСТЬ: НАСТРОЙКИ -->
+            <div class="controls-panel">
+                <div class="random-row">
+                    <button class="random-btn" id="randomAllBtn">🎲 Случайный набор</button>
+                </div>
+
+                <!-- форма лица -->
+                <div class="control-section">
+                    <div class="section-title"><span>🔮</span> Форма лица</div>
+                    <div class="option-grid" id="faceShapeGroup">
+                        <button class="opt-btn" data-shape="round">Круглое</button>
+                        <button class="opt-btn selected" data-shape="oval">Овальное</button>
+                    </div>
+                </div>
+
+                <!-- цвет кожи -->
+                <div class="control-section">
+                    <div class="section-title"><span>🎨</span> Цвет кожи</div>
+                    <div class="color-options" id="skinColorGroup">
+                        <div class="color-dot beige" data-skin="beige" title="светлый"></div>
+                        <div class="color-dot olive selected" data-skin="olive" title="оливковый"></div>
+                        <div class="color-dot brown" data-skin="brown" title="средний"></div>
+                        <div class="color-dot darkbrown" data-skin="darkbrown" title="тёмный"></div>
+                        <div class="color-dot almond" data-skin="almond" title="миндальный"></div>
+                    </div>
+                </div>
+
+                <!-- уши -->
+                <div class="control-section">
+                    <div class="section-title"><span>👂</span> Уши</div>
+                    <div class="option-grid" id="earsGroup">
+                        <button class="opt-btn selected" data-ears="normal">Обычные</button>
+                        <button class="opt-btn" data-ears="small">Маленькие</button>
+                        <button class="opt-btn" data-ears="big">Большие</button>
+                        <button class="opt-btn" data-ears="elf">Эльфийские</button>
+                    </div>
+                </div>
+
+                <!-- волосы -->
+                <div class="control-section">
+                    <div class="section-title"><span>💇</span> Волосы</div>
+                    <div class="option-grid" id="hairGroup">
+                        <button class="opt-btn" data-hair="none">Лысина</button>
+                        <button class="opt-btn selected" data-hair="short">Короткие</button>
+                        <button class="opt-btn" data-hair="mohawk">Ирокез</button>
+                    </div>
+                </div>
+
+                <!-- НОВЫЙ РАЗДЕЛ: БОРОДА -->
+                <div class="control-section">
+                    <div class="section-title"><span>🧔</span> Борода</div>
+                    <div class="option-grid" id="beardGroup">
+                        <button class="opt-btn selected" data-beard="none">Нет</button>
+                        <button class="opt-btn" data-beard="stubble">Щетина</button>
+                        <button class="opt-btn" data-beard="goatee">Эспаньолка</button>
+                        <button class="opt-btn" data-beard="full">Полная</button>
+                        <button class="opt-btn" data-beard="long">Длинная</button>
+                    </div>
+                </div>
+
+                <!-- глаза -->
+                <div class="control-section">
+                    <div class="section-title"><span>👀</span> Глаза</div>
+                    <div class="option-grid" id="eyesGroup">
+                        <button class="opt-btn selected" data-eyes="round">Круглые</button>
+                        <button class="opt-btn" data-eyes="happy">Весёлые</button>
+                        <button class="opt-btn" data-eyes="angry">Сердитые</button>
+                    </div>
+                </div>
+
+                <!-- брови -->
+                <div class="control-section">
+                    <div class="section-title"><span>✏️</span> Брови</div>
+                    <div class="option-grid" id="browsGroup">
+                        <button class="opt-btn selected" data-brows="neutral">Прямые</button>
+                        <button class="opt-btn" data-brows="arched">Дугообразные</button>
+                        <button class="opt-btn" data-brows="fierce">Суровые</button>
+                        <button class="opt-btn" data-brows="surprised">Удивлённые</button>
+                    </div>
+                </div>
+
+                <!-- одежда -->
+                <div class="control-section">
+                    <div class="section-title"><span>👕</span> Одежда</div>
+                    <div class="option-grid" id="clothesGroup">
+                        <button class="opt-btn selected" data-clothes="tshirt">Футболка</button>
+                        <button class="opt-btn" data-clothes="hoodie">Худи</button>
+                        <button class="opt-btn" data-clothes="suit">Костюм</button>
+                        <button class="opt-btn" data-clothes="jacket">Куртка</button>
+                    </div>
+                </div>
+
+                <!-- цвет одежды -->
+                <div class="control-section">
+                    <div class="section-title"><span>🎨</span> Цвет одежды</div>
+                    <div class="color-options" id="clothesColorGroup">
+                        <div class="color-dot selected" style="background:#4a7fc1" data-clothescolor="blue" title="синий"></div>
+                        <div class="color-dot" style="background:#c14a4a" data-clothescolor="red" title="красный"></div>
+                        <div class="color-dot" style="background:#4ac15b" data-clothescolor="green" title="зелёный"></div>
+                        <div class="color-dot" style="background:#2e2e2e" data-clothescolor="black" title="чёрный"></div>
+                        <div class="color-dot" style="background:#c8a84b" data-clothescolor="yellow" title="жёлтый"></div>
+                        <div class="color-dot" style="background:#c0c0c0" data-clothescolor="gray" title="серый"></div>
+                    </div>
+                </div>
+
+                <!-- цвет штанов -->
+                <div class="control-section">
+                    <div class="section-title"><span>👖</span> Цвет штанов</div>
+                    <div class="color-options" id="pantsColorGroup">
+                        <div class="color-dot selected" style="background:#4a7fc1" data-pantscolor="blue" title="синий"></div>
+                        <div class="color-dot" style="background:#c14a4a" data-pantscolor="red" title="красный"></div>
+                        <div class="color-dot" style="background:#4ac15b" data-pantscolor="green" title="зелёный"></div>
+                        <div class="color-dot" style="background:#2e2e2e" data-pantscolor="black" title="чёрный"></div>
+                        <div class="color-dot" style="background:#c8a84b" data-pantscolor="yellow" title="жёлтый"></div>
+                        <div class="color-dot" style="background:#c0c0c0" data-pantscolor="gray" title="серый"></div>
+                    </div>
+                </div>
+
+                <!-- обувь -->
+                <div class="control-section">
+                    <div class="section-title"><span>👞</span> Обувь</div>
+                    <div class="option-grid" id="shoesGroup">
+                        <button class="opt-btn selected" data-shoes="sneakers">Кеды</button>
+                        <button class="opt-btn" data-shoes="boots">Ботинки</button>
+                        <button class="opt-btn" data-shoes="loafers">Лоферы</button>
+                    </div>
+                </div>
+
+                <!-- рот -->
+                <div class="control-section">
+                    <div class="section-title"><span>👄</span> Рот</div>
+                    <div class="option-grid" id="mouthGroup">
+                        <button class="opt-btn selected" data-mouth="smile">Улыбка</button>
+                        <button class="opt-btn" data-mouth="neutral">Нейтральный</button>
+                        <button class="opt-btn" data-mouth="sad">Грустный</button>
+                        <button class="opt-btn" data-mouth="open">Приоткрыт</button>
+                    </div>
+                </div>
+                <div class="footer-note">«Сохраняй» — образ готов ✨</div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>
